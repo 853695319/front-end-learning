@@ -1,0 +1,46 @@
+/* 默认间距设为0 */
+body,h1,h2,h3,h4,h5,h6,ul,p,dl,dd,input,select,form{
+    margin:0;
+    padding:0;
+}
+/* 继承 body 内设置的字体大小 */
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;
+}
+
+ul{
+    list-style:none;
+}
+
+b,strong,em,i{
+    font-weight:normal;
+    font-style:normal;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* 去掉 IE 下，图片做链接是产生的边框 */
+img{
+    border:none;
+}
+
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+
+
+.clearfix:after,.clearfix:before{
+    content:"";
+    display:table;
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    zoom:1;
+}
