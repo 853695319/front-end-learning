@@ -2,4 +2,4 @@ test rm file then recovery file
 now i have creatr a GitHub repo,try it
 Creating a new branch is quick & simple.
 Creating a new branch is quick.
-Creating a new branch is quick AND simple
+Creating a new branch is quick or simple.
