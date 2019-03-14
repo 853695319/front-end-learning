@@ -303,27 +303,27 @@ body{
 }
 .logopage_foot{
     margin-top:23px;
-    border:none;
+    border-top:0;
 }
-.footer_con ul,.logopage_foot ul{
+.footer_con ul{
     height:16px;
     margin-top:40px;
     text-align:center;
 }
-.footer_con li,.logopage_foot li{
+.footer_con li{
     display: inline-block;
 }
-.footer_con span,.logopage_foot span{
+.footer_con span{
     margin:0 10px;
     cursor: default;
 }
-.footer_con a,.logopage_foot a{
+.footer_con a{
     color:#4e4e4e;
 }
-.footer_con a:hover,.logopage_foot a:hover{
+.footer_con a:hover{
     color:orange;
 }
-.footer_con p,.logopage_foot p{
+.footer_con p{
     text-align:center;
     line-height:27px;
     margin-top:10px;
