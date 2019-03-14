@@ -382,6 +382,7 @@ body{
     width:310px;
     margin:18px auto 0;
     font-size:0;
+    position: relative;
 }
 .user_login_con .user_content .name,.user_login_con .user_content .user_pwd{
     width:306px;
@@ -391,21 +392,38 @@ body{
     color:a9a9a9;
     font-size:12px;
     background:url(../images/icons.png) 280px -594px no-repeat #f8f8f8;
+    /* 去掉输入框外面的虚框 */
+    outline:none;
 }
 .user_login_con .user_content .user_pwd{
     margin-top:27px;
     background-position:280px -645px;
 }
+.user_login_con .user_content .hints1,.user_login_con .user_content .hints2{
+    font-size:12px;
+    line-height:16px;
+    color:#ff5400;
+    display:none;
+    position: absolute;
+    top:43px;
+    left:0px;
+}
+.user_login_con .user_content .hints2{
+    top:110px;
+}
+
 .user_login_con .user_content .checkbox{
-    margin-top:30px;
+    height:16px;
+    margin:30px auto 0;
     font-size:0;
     line-height:16px;
     position: relative;
 }
 .checkbox input{
-    height:16px;
+    /* height:16px; */
     position: relative;
-    top:4px;
+    top:2px;
+    left:1px;
 }
 .checkbox label, .checkbox a{
     font-size:12px;

@@ -13,22 +13,26 @@
     <div class="user_login_con">
         <div class="user_login">
             <div class="header">
-                <span class="login">会员登录</span>
+                <h1 class="login">会员登录</h1>
                 <a class="register" href="#">立即注册</a>
             </div>
 
-            <div class="user_content">
-                <input class="name" type="text" name="username" placeholder="请输入用户名">
-                <br>
-                <input class="user_pwd" type="password" name="pwd" placeholder="请输入密码">
-                <br>
-                <div class="checkbox clearfix">
-                    <input type="checkbox" id="remember_user" name="remember_user" value="1"><label for="remember_user">记住用户名和密码</label>
-                    <a class="fr" href="#">忘记密码</a>
+            <form action="http://www.baidu.com" method="post">
+                <div class="user_content">
+                    <input class="name" type="text" name="username" placeholder="请输入用户名">
+                    <span class="hints1">提示信息1</span>
+                    <br>
+                    <input class="user_pwd" type="password" name="pwd" placeholder="请输入密码">
+                    <span class="hints2">提示信息2</span>
+                    <br>
+                    <div class="checkbox clearfix">
+                        <input class="fl" type="checkbox" id="remember_user" name="remember_user" value="1"><label for="remember_user">记住用户名和密码</label>
+                        <a class="fr" href="#">忘记密码</a>
+                    </div>
+                    <br>
+                    <input class="login_button" type="submit" value="登 录">
                 </div>
-                <br>
-                <input class="login_button" type="button" value="登 录">
-            </div>
+            </form>
         </div>
         <em class="publicity fr">日夜兼程 ·急速送达</em>
     </div>
