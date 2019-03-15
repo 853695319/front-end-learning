@@ -5,23 +5,24 @@
     top: 0;
     bottom: 0;
     /* 实际上就把该盒子设置成和父元素（body）一样大了 */
-    background-color: rgb(2, 54, 2);
+    /* background-color: rgb(2, 54, 2); */
 }
 
 .header{
     /* 文档流必定顶格 */
     height: 50px;
-    background-color:rgb(24, 243, 24);
+    /* background-color:rgb(24, 243, 24); */
 }
 
 .center_wrap{
+    /* 之所以用定位，是为动态适配不同手机屏幕高度 */
     position: absolute;
     /* 转换成 inline-block */
     left: 0;
     right: 0;
     top: 50px;
     bottom: 50px;
-    background-color: rgb(0, 128, 96);
+    /* background-color: rgb(0, 128, 96); */
     /* 新技巧 */
     overflow: auto;
     /* overflow-x: hidden;
@@ -36,5 +37,5 @@
     left: 0;
     /* right: 0; */
     bottom: 0;
-    background: rgb(236, 229, 129);
+    /* background: rgb(236, 229, 129); */
 }
