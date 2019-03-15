@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片翻面效果</title>
+    <style type="text/css">
+        .con, .pic, .info{
+            width: 300px;
+            height: 272px;
+        }
+        .con{
+            margin:50px auto 0;
+            position:relative;
+        }
+        .pic, .info{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transition: all 500ms ease;
+        }
+        .info{
+            background: gold;
+            text-align:center;
+            font-size:50px;
+            line-height:300px;
+            /* 初始 图片向着背面 也就是180deg */
+            transform-style:preserve-3d;
+            transform:perspective(800px) rotateY(180deg);
+            /* backface-visibility: hidden; */
+        }
+        .pic{
+            transform-style:preserve-3d;
+            transform:perspective(800px) rotateY(0deg);
+            /* 图片转到背后就不可见了，否则还会盖着 info */
+            backface-visibility: hidden;
+        }
+        .con:hover .pic{
+            transform:perspective(800px) rotateY(180deg);
+        }
+        .con:hover .info{
+            /* 同方向顺时针旋转 转到正面就是 360deg */
+            transform:perspective(800px) rotateY(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <!-- 一开始图片说明被图片盖住了 -->
+        <div class="info">图片说明</div>
+        <div class="pic"><img src="images/location_bg.jpg" alt="背景图"></div>
+    </div>
+</body>
+</html>
