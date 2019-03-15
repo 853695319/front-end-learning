@@ -11,7 +11,7 @@
 
 .header{
     /* 文档流必定顶格 */
-    height: 50px;
+    height: 2.5rem;
     /* background-color:rgb(24, 243, 24); */
 }
 
@@ -21,8 +21,8 @@
     /* 转换成 inline-block */
     left: 0;
     right: 0;
-    top: 50px;
-    bottom: 50px;
+    top: 2.5rem;
+    bottom: 2.5rem;
     /* background-color: rgb(0, 128, 96); */
     /* 新技巧 */
     overflow: auto;
@@ -34,7 +34,7 @@
     position: absolute;
     /* 转换成 inline-block */
     width: 100%;
-    height:50px;
+    height:2.5rem;
     left: 0;
     /* right: 0; */
     bottom: 0;
