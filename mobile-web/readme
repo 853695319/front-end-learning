@@ -1,0 +1,14 @@
+分支：remweb-->web基于rem的布局
+rem 通过 set_root.js 实现动态设置根节点 font-size
+var calc = function(){
+    var docElement = document.documentElement;
+    var clientWidthValue = docElement.clientWidth > 750 ? 750 : docElement.clientWidth;
+    docElement.style.fontSize = 20*(clientWidthValue/375) + 'px';
+    // 375px 是 iPhone6 的宽度； 
+}
+iPhone6宽度375px 为适配 Rtina屏幕 还要将设计师提供 750 x height 的设计图 全部除以二
+px to rem 通过拓展 cssrem 实现, cssrem里设置默认根节点font-size: 2*20px=40px
+为什么 font-size 默认设置为 40px ?
+假如实际图片 100px x 100px 除以2适配 Retina屏幕-> 50px x 50px 除以20px -> 2.5rem >> 100/(2*20) = 100/40 ->原尺寸/40px
+这样就不用每次从Photoshop量取数值然后除以2了
+注意：字体不要放缩 不要使用 rem 定义字体大小， 自己把字体大小除以二

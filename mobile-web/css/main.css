@@ -1,3 +1,7 @@
+/* 全局 */
+body img{
+    width:100%;
+}
 /* 为视频 retina屏 宽 高为设计图的0.5倍 */
 .main_wrap{
     position: absolute;
@@ -6,15 +10,33 @@
     top: 0;
     bottom: 0;
     /* 实际上就把该盒子设置成和父元素（body）一样大了 */
-    /* background-color: rgb(2, 54, 2); */
 }
-
+/* header begin */
 .header{
     /* 文档流必定顶格 */
     height: 2.5rem;
-    /* background-color:rgb(24, 243, 24); */
+    background-color: #37ab40;
+    position: relative;
 }
+.header .top_logo{
+    display: block;
+    width: 4.45rem;
+    height: 1.8rem;
+    margin: 0.35rem auto 0;
+}
+.header .icon_search{
+    position:absolute;
+    width: 1.35rem;
+    height: 1.35rem;
+    background: url(../images/icons.png) left top no-repeat;
+    background-size: 3rem 42rem;
+    top: .625rem;
+    right: .75rem;
 
+}
+/* header end */
+/* center begin */
+/* part slide begin */
 .center_wrap{
     /* 之所以用定位，是为动态适配不同手机屏幕高度 */
     position: absolute;
@@ -23,13 +45,158 @@
     right: 0;
     top: 2.5rem;
     bottom: 2.5rem;
-    /* background-color: rgb(0, 128, 96); */
+    background-color: #efefef;
     /* 新技巧 */
-    overflow: auto;
-    /* overflow-x: hidden;
-    overflow-y: auto;  */
+    /* overflow: auto; */
+    /* 不出现横向滚动条 */
+    overflow-x: hidden;
+    overflow-y: auto; 
 }
-
+.center_wrap .slide{
+    width:100%;
+    /* height: 7rem; */
+}
+/* part slide end */
+/* part nav begin */
+.center_wrap .nav{
+    width: 100%;
+    background: #ffffff;
+    height: 9.25rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.center_wrap .nav ul{
+    /* display: inline-block; */
+    margin-top: .7rem;
+    margin-left: 1.375rem;
+    width: 19rem;
+    height: 8.1rem;
+}
+.center_wrap .nav li{
+    float:left;
+    margin-right: 1.625rem;
+}
+.center_wrap .nav li:nth-child(4){margin-right: 0;}
+.center_wrap .nav li:last-child(8){margin-right: 0;}
+.center_wrap .nav a{
+    display:block;
+    width: 2.8rem;
+    height: 4.1rem;
+}
+.center_wrap .nav a:hover h2{
+    color: orange;
+}
+.center_wrap .nav div{
+    height: 2.8rem;
+    background: url(../images/icons.png) left -3rem no-repeat;
+    background-size: 3rem 42rem;
+}
+.center_wrap .nav h2{
+    line-height: 1.3rem;
+    font-size: 13px;
+    text-align: center;
+    color: #666;
+}
+.center_wrap .nav .icon_02{background-position: left -6rem}
+.center_wrap .nav .icon_03{background-position: left -9rem}
+.center_wrap .nav .icon_04{background-position: left -12rem}
+.center_wrap .nav .icon_05{background-position: left -15rem}
+.center_wrap .nav .icon_06{background-position: left -18rem}
+.center_wrap .nav .icon_07{background-position: left -21rem}
+.center_wrap .nav .icon_08{background-position: left -24rem}
+/* part nav end */
+/* part goods list begin */
+.center_wrap .goods_list{
+    height:17.8rem;
+    margin: 0.5rem 0;
+    background: #ffffff;
+}
+.center_wrap .goods_list .title{
+    width: 17.75rem;
+    height: .9rem;
+    margin: .8rem auto 0;
+}
+.center_wrap .goods_list .title h3{
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 0.9rem;
+    color: #fbc83d;
+    border-left: 0.25rem solid #fbc83d;
+    text-indent: 0.4rem;
+}
+.center_wrap .goods_list .title a{
+    float:right;
+    font-size: 12px;
+    line-height: 0.9rem;
+    color: #7f7f7f;
+}
+.center_wrap .goods_list .banner{
+    width: 17.75rem;
+    margin: 0.5rem auto 0;
+}
+.center_wrap .goods_list .list{
+    width: 17.75rem;
+    /* height: 9.35rem; */
+    margin: 0.5rem auto 0.7rem;
+}
+.center_wrap .goods_list .list li{
+    float:left;
+    width: 5.825rem;
+    /* height: 9.35rem; */
+    border-right: 1px solid #e7e7e7;
+    position: relative;
+}
+.center_wrap .goods_list .list li:last-child{
+    border-right:0px;
+}
+.goods_list .list a{
+    display: block;
+    width: 5rem;
+    margin: 0.5rem auto;
+}
+.goods_list .list a h4{
+    font-size:15px;
+    line-height: 15px;
+    color: #666;
+    margin-top:0.75rem;
+    /* text-align:center; */
+    /* 省略效果 */
+    /* width: 5.0rem; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.goods_list .list a:hover h4{
+    color:orange;
+}
+.goods_list .list .unit{
+    width: 5rem;
+    margin: 0.8rem auto 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: #bbb;
+}
+.goods_list .list .prices{
+    font-size: 12px;
+    line-height: 12px;
+    color: #ff4400;
+    margin: 0.5rem auto 0;
+    width: 5.0rem;
+}
+.goods_list .list .button_add{
+    position: absolute;
+    width: 1.7rem;
+    height: 1.7rem;
+    right: 0.675rem;
+    bottom: 0;
+    background: url(../images/icons.png) left -27rem no-repeat;
+    background-size: 3rem 42rem;
+    margin:0;
+}
+/* part goods list end */
+/* center end */
+/* footer begin */
 .footer{
     position: absolute;
     /* 转换成 inline-block */
@@ -38,5 +205,52 @@
     left: 0;
     /* right: 0; */
     bottom: 0;
-    /* background: rgb(236, 229, 129); */
+    background: #fff;
+}
+.footer li{
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.footer li a{
+    display:block;
+    margin-top: 0.25rem;
+}
+.footer li a:hover h2{
+    color: orange;
+}
+.footer li div{
+    height: 1.3rem;
+    width: 1.375rem;
+    background: url(../images/icons.png) left -30rem no-repeat;
+    background-size: 3rem 42rem;
+    margin: 0 auto;
+}
+.footer li h2{
+    font-size: 12px;
+    line-height: 12px;
+    color: #949392;
+    margin-top: 0.2rem;
+    text-align: center;
+}
+.footer li .ficon_02{background-position-y: -33rem;}
+.footer li .ficon_03{background-position-y: -36rem;}
+.footer li .ficon_04{background-position-y: -39rem;}
+/* footer end */
+
+/* 响应式 */
+@media(min-width:380px){
+    /* iPhone6 375,当屏幕宽度大于或等于380时 */
+    .center_wrap .nav h2{
+        font-size: medium;
+    }
+    .goods_list .list .unit{
+        font-size: 14px;
+    }
+    .goods_list .list .prices{
+        font-size:medium;
+    }
+    .footer li h2{
+        font-size: medium;
+    }
 }
