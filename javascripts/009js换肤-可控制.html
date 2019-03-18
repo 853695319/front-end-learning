@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js换肤</title>
+    <link id="link01" rel="stylesheet" href="1.css" type="text/css">
+    <!-- <link rel="stylesheet" href="2.css" type="text/css"> -->
+    <script type="text/javascript">
+        window.onload = function(){
+            var oBtn01 = document.getElementById("btn01");
+            var oBtn02 = document.getElementById("btn02");
+
+            // 提前行间事件
+            // warning： 不能写成oBtn01.onclick = skin01(); 这样相当于先执行 skin01() 在把结果返回给oBtn01.onclick
+            oBtn01.onclick = skin01;
+            oBtn02.onclick = skin02;
+        }
+
+
+        function skin01() {
+            var oLink01 = document.getElementById("link01");
+            oLink01.href = "1.css"
+        }
+        function skin02() {
+            var oLink01 = document.getElementById("link01");
+            oLink01.href = "2.css"
+        }
+    </script>
+</head>
+
+<body>
+    <!--     
+    <input type="button" value="皮肤01" onclick="skin01()" id="btn01">
+    <input type="button" value="皮肤02" onclick="skin02()" id="btn02">
+     -->
+    <input type="button" value="皮肤01" id="btn01">
+    <input type="button" value="皮肤02" id="btn02">
+    <div class="box01"></div>
+    <div class="box02"></div>
+</body>
+
+</html>
