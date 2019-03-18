@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 条件语句</title>
+    <style type="text/css">
+        .box{
+            width: 300px;
+            height: 300px;
+            background: green;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+            var oDiv = document.getElementById("box");
+
+            oBtn.onclick = function(){
+                // if (oDiv.style.display == 'none') {
+                //     oDiv.style.display = 'block';
+                // }
+                // else
+                // {
+                //     oDiv.style.display = 'none';
+                // }
+
+                // 需要点击两次，才有切换效果
+                // 这是因为一开始没有oDiv.style.display,函数到 行间样式 里找，但是没有，所以为空
+                // 并不是到 .box 里面找
+                // alert(oDiv.style.display)
+                if (oDiv.style.display == 'block' || oDiv.style.display == '') {
+                    oDiv.style.display = 'none';
+                }
+                else
+                {
+                    oDiv.style.display = 'block';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="切换" id="btn">
+    <div class="box" id="box"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 函数传参</title>
+    <script type="text/javascript">
+        window.onload = function(){
+            // 函数传参
+            var oDiv01 = document.getElementById("div01");
+            // 主逻辑
+            changestyle("color", "red");
+            changestyle("backgroundColor", "green");
+            changestyle("width", '300px');
+            changestyle("height", '300px');
+            changestyle("fontSize", '30px');
+
+
+
+            // 函数预解析
+            function changestyle(styl, val) {
+                oDiv01.style[styl] = val;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div01">这是div元素</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 数组</title>
+    <script>
+        // 对象的实例创建
+        var aRr01 = new Array(1, 2, 3, 'abc');
+        // 直接量创建,推荐，性能比上面的高
+        var aRr02 = [1, 2, 3, 'abc'];
+
+        var aRr03 = [
+            [1,2,3],
+            ['a','b','c'],
+            ['red','blue','green'],
+            [true, false]
+        ];
+
+        // alert(aRr02.length);
+        // alert(aRr02[3]);  // 'abc'
+        alert('length'+aRr03.length);
+        alert('length'+aRr03[3].length);
+        alert(aRr03[1][2]);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
