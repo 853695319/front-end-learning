@@ -1,1 +1,1 @@
-alert('hello world');
+alert('hello world 外联式');
