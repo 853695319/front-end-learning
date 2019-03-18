@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 基本语法</title>
+
+    <!-- js -->
+    <script type="text/javascript">
+        window.onload = function () {
+            // 当整个文档加载完后，才执行
+            var oDiv = document.getElementById("div1")
+            oDiv.title = "js 修改 title 属性";
+
+            // oA --> o:类型 A:变量名
+            var oA = document.getElementById("link1")
+            oA.href = "http://www.baidu.com";
+            oA.title = "链接到百度";
+            // alert(oA.id);
+        } 
+    </script>
+
+</head>
+
+<body>
+    <div id="div1" class="div1" style="color:red;" title="title:div元素">这是一个div元素</div>
+    <a href="#" id="link1">baidu</a>
+</body>
+
+</html>

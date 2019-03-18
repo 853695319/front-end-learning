@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js操作class</title>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            var oDiv = document.getElementById('div1');
+
+            var attr = "color";
+
+            // oDiv.style.attr = "red";
+            // oDiv.style[attr] = "green";
+            oDiv["style"][attr] = "green";
+            // 通过 [] 操作属性可以写变量
+
+            // 通过 innerHTML 可以读取元素报告的内容
+            alert(oDiv.innerHTML)
+
+
+            var oDiv2 = document.getElementById("div2")
+
+            oDiv2.innerHTML = "这是第二个div元素"
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">这是一个div元素</div>
+    <div id="div2"></div>
+</body>
+</html>

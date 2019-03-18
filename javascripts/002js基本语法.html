@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 基本语法</title>
+    <script type="text/javascript">
+        // 单行注释
+        /* 多行注释 */
+        var a = 123;
+        // alert(a);
+
+        // TypeError: document.getElementById(...) is null
+        // 自上而下读取代码，这时还没有 id="div1" 的元素，所以报错
+        // document.getElementById("div1").title="js 修改 title 属性";
+
+    </script>
+</head>
+<body>
+    <div id="div1" class="div1" style="color:red;" title="title:div元素">这是一个div元素</div>
+
+    <script type="text/javascript">
+        document.getElementById("div1").title="js 修改 title 属性";
+    </script>
+</body>
+</html>
