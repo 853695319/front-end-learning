@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js嵌入页面的方式</title>
+
+    <!-- 3 外联式 -->
+    <script src="hello.js" type="text/javascript"></script>
+
+    <!-- 2 嵌入式 -->
+    <script type="text/javascript">
+        alert("hello,again!");
+    </script>
+</head>
+<body>
+    <!-- 1 嵌入js的:行间事件，不推荐 -->
+    <input type="button" value="弹框" onclick="alert('hello!')">
+</body>
+</html>
