@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+                var oText = document.getElementById('input01');
+                var oBtn = document.getElementById('btn01');
+                // var sTr = 'cba';
+                oBtn.onclick = function () {
+                    var sTr = oText.value;
+                    var sTr2 = sTr.split('').reverse().join('');
+                    console.log(sTr2);
+                }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="" id="input01">
+    <input type="button" value="提交" id='btn01'>
+    
+</body>
+</html>

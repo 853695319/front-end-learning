@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js 计算器</title>
+    <script>
+        window.onload = function () {
+            // 只在加载的时候执行一次
+            var oForm = document.getElementById('calculator');
+            var tInput = oForm.getElementsByTagName('input');
+            var oOpt = oForm.getElementsByTagName('select');
+            // console.log(oOpt[0].value);
+            // var num1 = parseInt(tInput[0].value);
+            // console.log('num1:'+num1);
+            // 弹出空
+            // 原因是上面预加载时，还什么都没有输入，且只加载一次
+
+            tInput[2].onclick = function () {
+                // if (tInput[0].value == "" || tInput[1].value == "") {
+                if (isNaN(tInput[0].value) || isNaN(tInput[1].value)) {
+                    alert("err:请正确输入数值");
+                    return;
+                }
+
+                // 赋值语句要写在函数里面，click的瞬间赋值
+                // 避免0.1+0.2的bug 先把小数转成整数，再转回小数
+                var num1 = parseFloat(tInput[0].value)*100;
+                console.log('num1:'+num1);
+                var num2 = parseFloat(tInput[1].value)*100;
+                console.log('num2:'+num2);
+                // var opt = parseInt(oOpt.value);
+                // 错在 oOpt 是类似列表的HTMLcollection
+                var opt = parseInt(oOpt[0].value);
+                console.log('opt:'+oOpt[0].value);
+
+                switch (opt) {
+                    case 0:
+                        alert((num1+num2)/100);
+                        break;
+                    case 1:
+                        alert((num1-num2)/100);
+                        break;
+                    case 2:
+                        alert((num1*num2)/10000);
+                        break;
+                    case 3:
+                        if (num2 === 0) {
+                            alert('err:被除数不能为0');
+                        } else {
+                            alert(num1/num2);
+                        }
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>计算器</h2>
+    <form id='calculator'>
+        <input type="text">
+        <select>
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">*</option>
+            <option value="3">/</option>
+        </select>
+        <input type="text">
+        <input type="button" value="计算">
+    </form>
+</body>
+</html>

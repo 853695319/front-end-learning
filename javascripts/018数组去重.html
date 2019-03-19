@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+    <script>
+        var aRr = [1,1,2,2,3,3]; 
+        var aRr2 = [];
+
+        for (var i=0; i<aRr.length; i++) {
+            // 目标元素索引值 与 i 比较，不相同表示有重复
+            if (aRr.indexOf(aRr[i]) == i) {
+                aRr2.push(aRr[i]);
+            }
+        }
+        alert('before:' + aRr + '\nafter:' + aRr2)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
