@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        // 测试jQuery有没有用
+        // console.log($);
+        window.onload = function () {
+            var oDiv = document.querySelector('#div');
+            console.log("js: "+oDiv.innerHTML);
+        };
+
+        // jQuery
+        // $(document).ready(function(){
+        //     // 不成文的规定，对jQuery对象，前面加'$'
+            // var $div = $('#div');
+            // console.log("jQuery: "+$div.html());
+        // });
+        // 可以简写为：
+        $(function () {
+            var $div = $('#div');
+            console.log("jQuery: "+$div.html());
+        });
+
+
+
+        // 17:18:23.096 jQuery: 一个div元素 001加载.html:21:13
+        // 17:18:23.287 js: 一个div元素
+        // 为什么 jQuery 比 JavaScript 加载快呢？
+        // window.onload 是所有页面元素加载，渲染完后，才执行
+        // $(document).ready 是所有页面节点加载完，就执行，不等渲染，所以通常开发使用这个
+    </script>
+</head>
+<body>
+    <div id="div">一个div元素</div>
+</body>
+</html>

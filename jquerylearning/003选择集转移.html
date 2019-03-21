@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择集转移</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+
+            // next() 这个函数只返回后面那个 紧邻 的同辈元素，而不是后面所有的同辈元素（可以使用nextAll）。
+            console.log(
+                $("#div1").next()
+            );  // div
+            console.log(
+                $("#div1").nextAll('p')
+            );  // p
+
+            // 取得一个包含着所有匹配元素的唯一父元素的元素集合。
+            console.log(
+                $("#span01").parent()
+            );  // div#div2 返回上一级的父颜色。
+            console.log(
+                $("#span02").parent()
+            );  // 3级结构，不返回最外面的div
+            console.log(
+                $("#span02").parent().parent()
+            );  // 返回了最外面的div
+            console.log(
+                $("#span02").parents("div")
+            );  // 返回祖先集合，然后过滤
+
+            // .closest( selectors [, context ] )方法从 jQuery 1.7 开始，不再建议使用该方法
+            // closest会首先检查当前元素是否匹配，如果匹配则直接返回元素本身。
+            // 如果不匹配则向上查找父元素，一层一层往上，直到找到匹配选择器的元素。如果什么都没找到则返回一个空的jQuery对象。
+            console.log(
+                $("#span02").closest("div")
+            );
+
+            // 取得一个包含匹配的元素集合中每一个元素的所有 子元素 的元素集合。
+            $(".list").children().css({
+                // 设置子元素 li
+                background: "gold",
+                height: "30px",
+                marginBottom: "10px"
+            }).end().css({
+                // 回退，设置自己 .list
+                background: "black"
+            });
+            // 区别，原始选择集不一样，上面的可以回到父级，下面的不可以
+            console.log(
+                $(".list li")
+            );
+
+            $(".list2 li:eq(1)").css({
+                // 第二行 橙色
+                background: "orange"
+            }).siblings().css({
+                // 其余兄弟
+                background: "green"
+            });
+
+            // 搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。
+            console.log(
+                $("#div3").find(".link1").css({
+                    color: "orange"
+                })
+            );
+
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 同级 -->
+    <div id="div1">这是一个div元素</div>
+    <div>这是第二个div元素</div>
+    <p>这是一个p元素</p>
+
+    <div id="div2">
+        <a href="#">百度</a>
+        <span id="span01">span元素</span>
+    </div>
+
+    <div id="div3">
+        <p>
+            <a href="#" class="link1">腾讯</a>
+            <span id="span02">span元素</span>
+        </p>
+    </div>
+
+    <ul class="list">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <ul class="list2">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        /* 当前标签页 */
+        .button-list input.current-card {
+            background: orange;
+        }
+        .content div {
+            display: none;
+            width: 195px;
+            height: 200px;
+            background: orange;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            line-height: 200px;
+        }
+        /* 当前标签页内容 */
+        .content div.active {
+            display: block;
+        }
+    </style>
+    <script>
+        $(function () {
+
+            $("#btn input").click(function () {
+                // alert(this);  // 当前点击的 input 元素, 是原生的对象[object HTMLInputElement]
+                // this 是原生对象，所以用 this 前，要用"$"包起来,$(this)就是我当前点击的 对象!!!
+                console.log(this);  // <input class="current-card" type="button" value="Card01">
+                console.log($(this)); // Object { 0: input.current-card, context: input.current-card, length: 1 }
+
+                $(this).addClass("current-card").siblings().removeClass("current-card");
+                // jQuery 帮我把索引值存起来了,$(this).index() 获取当前按钮所在层级范围内的索引值
+                console.log($(this).index());
+                $("#content div").eq($(this).index()).addClass("active").siblings().removeClass("active");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="button-list" id="btn">
+        <input type="button" value="Card01" class="current-card">
+        <input type="button" value="Card02">
+        <input type="button" value="Card03">
+    </div>
+
+    <div class="content" id="content">
+        <div class="active" >内容01</div>
+        <div>内容02</div>
+        <div>内容03</div>
+    </div>
+</body>
+</html>

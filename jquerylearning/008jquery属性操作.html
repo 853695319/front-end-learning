@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // read
+            console.log($(".box").html());
+            // write
+            $(".box").html('<a href="http://www.baidu.com">baidu</a>');
+
+            $(".box").attr({
+                title: "跳转到百度"
+            });
+
+            console.log($(".box").attr("class"));
+            // 多选框是否处于选中状态
+            console.log($("#check01").prop("checked"));
+            // 然后取消打钩
+            $("#check01").prop({
+                checked: false
+            });
+
+            console.log(
+                $(".box2").html()
+            );
+            // 纯文本，不带标签
+            console.log(
+                $(".box2").text()
+            );
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="box">这是一个div元素</div>
+    <!-- checked 默认打钩 -->
+    <input type="checkbox" name="check" id="check01" checked>
+    <label for="check01">多选</label>
+
+    <div class="box2">
+        <span>这是div元素内的span</span>
+    </div>
+</body>
+</html>

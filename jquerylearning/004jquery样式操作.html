@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+            // 同一个函数完成取值和赋值
+
+            console.log(
+                // 读取样式
+                $(".div1").css("fontSize")
+            );
+            // 设置样式（写入）
+            $(".div1").css({
+                background: "gold"
+            });
+
+            $(".div1").addClass("big");  // 只写样式名 className ，className 前面不用加 "."
+            $(".div1").removeClass("div1");
+
+        });
+    </script>
+    <style>
+        .big {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">这是一个div元素</div>
+</body>
+</html>

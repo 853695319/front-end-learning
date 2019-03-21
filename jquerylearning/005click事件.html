@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function () {
+
+            $("#btn").click(function () {
+                // 如果存在（不存在）就删除（添加）一个类
+                $(".box").toggleClass("sty");
+            });
+
+        });
+    </script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: gray;
+        }
+
+        .sty {
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="切换" id="btn">
+    <div class="box"></div>
+</body>
+</html>
