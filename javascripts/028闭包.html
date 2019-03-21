@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包</title>
+    <script>
+        // 闭包：函数嵌套函数，内部函数可以引用外部函数的参数和变量，参数和变量不会被垃圾回收机制收回 
+        function aa(b) {
+            var a = 'hello';
+
+            function bb() {
+                alert(a);
+                alert(b);
+            }
+            // 一定要 return ！！
+            return bb;
+        }
+        // 全局变量，直到页面关闭前都不会被回收
+        // 而 function aa 与 cc 关联，那么 function aa 也不会被回收 
+        var cc = aa('world');
+        cc();
+
+        // 封闭函数
+        var dd = (function(b){
+                var a = '你好，';
+                function innerFunction() {
+                    alert(a);
+                    alert(b);
+                }
+                return innerFunction;
+            })('世界');
+        dd()
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

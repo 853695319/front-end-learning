@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        /* 当前标签页 */
+        .button-list input.current-card {
+            background: orange;
+        }
+        .content div {
+            display: none;
+            width: 195px;
+            height: 200px;
+            background: orange;
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            line-height: 200px;
+        }
+        /* 当前标签页内容 */
+        .content div.active {
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var collectionBtn = document.getElementById('btn').getElementsByTagName('input');
+            console.log(collectionBtn.length);
+            var collectionDiv = document.getElementById('content').getElementsByTagName('div');
+            console.log(collectionDiv.length);
+
+            var n = collectionBtn.length;
+
+
+            // 通过 for 循环绑定事件
+            for (var i=0; i<n; i++) {
+
+                // 闭包，小心内存溢出，因为保持的变量无法回收
+                // (function (i) {  // i形参
+                //     // 函数嵌套
+                //     collectionBtn[i].onclick = function () {
+
+                //         // 清除标签状态，变灰色
+                //         for (var j=0; j<n; j++) {
+                //             collectionBtn[j].className = "";
+                //             collectionDiv[j].className = "";
+                //         }
+                //         // this 指当前页面点击的那个按钮
+                //         this.className = "current-card";
+                //         // 切换到对应标签页内容
+                //         console.log('i: '+i);  // i始终为3，超出边界,用闭包保持索引i
+                //         collectionDiv[i].className = "active";
+
+                //     }
+
+                // })(i);  // i 实参
+
+                collectionBtn[i].onclick = (function (i) {
+
+                    function innerFun () {
+                        for (var j=0; j<n; j++) {
+                            collectionBtn[j].className = "";
+                            collectionDiv[j].className = "";
+                        }
+                        // this 指当前页面点击的那个按钮
+                        this.className = "current-card";
+                        // 切换到对应标签页内容
+                        console.log('i: '+i);  // i始终为3，超出边界,用闭包保持索引i
+                        collectionDiv[i].className = "active";
+                    }
+                    return innerFun;
+
+                })(i);
+
+
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <div class="button-list" id="btn">
+        <input type="button" value="Card01" class="current-card">
+        <input type="button" value="Card02">
+        <input type="button" value="Card03">
+    </div>
+
+    <div class="content" id="content">
+        <div class="active" >内容01</div>
+        <div>内容02</div>
+        <div>内容03</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>闭包的应用</title>
+    <style>
+        li {
+            background: green;
+            margin:5px 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oLi = document.getElementsByTagName('li');
+            // for (var i=0; i<oLi.length; i++){
+            //     oLi[i].onclick = function () {
+            //         alert('here is '+i);
+            //     }
+            // }
+            // 结果 都是弹出 here is 8
+            // 原因是，循环绑定结束后，i=8
+            for (var i=0; i<oLi.length; i++){
+                // 我写的,自认为更规范
+                // oLi[i].onclick-->nums 当点击时，执行nums()
+                oLi[i].onclick = (function (j) {
+                    j += 1;
+                    function nums() {
+                        alert('here is '+ j);
+                    }
+                    return  nums;
+                })(i);
+                // 视频教的
+                // (function(j){
+                //     oLi[j].onclick = function () {
+                //         alert(j);
+                //     }
+                // })(i);
+                // i是实参，j是形参，j=i
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+</body>
+</html>

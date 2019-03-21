@@ -9,11 +9,25 @@
 
         window.onload = function () {
             var oPop = document.getElementById('popAdv');
-            setTimeout(showpop, 4000);
+            var oShut = document.getElementById('closeAdv');
+            var timer = setTimeout(showpop, 2000);
+            // 关闭定时器，一般不这么写，一开始弹窗就关闭，
+            // clearTimeout(timer);
+
+            // 反复执行，2s一次
+            var timer2 = setInterval(function () {
+                alert('hi,there is timer2.');
+            }, 3000);
+            clearInterval(timer2); 
+
+            oShut.onclick = function () {
+                oPop.style.display = 'none';
+            }
 
             function showpop() {
                 oPop.style.display = 'block';
             }
+
         }
 
 
@@ -51,7 +65,6 @@
 
             background: #fff;
             text-align: center;
-            line-height: 200px;
         }
         .pop h1 {
             margin: 0;
@@ -83,7 +96,7 @@
         <!-- 弹窗一般是脱离文档流的 -->
         <div class="pop">
             <h1>提示信息！</h1>
-            <a href="#">关闭</a>
+            <a href="#" id="closeAdv" >关闭</a>
         </div>
 
         <div class="mask"></div>

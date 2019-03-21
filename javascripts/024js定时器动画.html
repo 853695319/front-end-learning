@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var oBox = document.getElementById('box');
+            var left = 20;
+            // oBox.style.left = "", 不能用它给 left 赋值
+            console.log('first:'+ oBox.style.left);  // first:20px
+            var timer = setInterval(function () {
+                left += 2;
+                oBox.style.left = left + 'px';
+                console.log('during:'+oBox.style.left);
+                if (left > 100) {
+                    clearInterval(timer);
+                }
+
+            }, 30);
+        }
+
+    </script>
+    <style>
+        .box {
+            position:fixed;
+            left: 20px;
+            top: 20px;
+
+            width: 100px;
+            height: 100px;
+
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+</html>

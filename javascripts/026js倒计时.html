@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+                var oDiv = document.getElementById('div01');
+                timego();
+                // 一开始立刻执行一次，因为定时器在1s后才启动，不然页面刷新有空白
+                setInterval(timego, 1000);
+
+                function timego () {
+                    // 实际开发中，时间从服务器端获取，因为用户端用户时间可以更改
+                    var now = new Date();
+                    // 注意月份这个坑,deadLine 是静止的
+                    // var deadLine = new Date(2019,2,30,24,0,0);
+                    var deadLine = new Date(2019,2,20,16,23,0);
+                    // alert(timeLimit - now)  // unit:ms
+                    var lefts = parseInt((deadLine-now)/1000);
+                    // alert(lefts)  // s
+                    var day = parseInt(lefts/(24*60*60));
+                    // alert(day);
+                    var hour = parseInt((lefts%86400)/(60*60));
+                    // alert(hour);
+                    var minute = parseInt(((lefts%86400)%3600)/60);
+                    // alert(minute);
+                    var second = parseInt(lefts%60);  // 不够60s就是剩余多少秒啦
+                    // alert(second);
+                    // 然后第二天把页面撤掉
+                    if (lefts < 0) {
+                        // 页面跳转到别的地方，lefts 负数
+                        window.location.href = "http://www.baidu.com";
+                    }
+
+                    oDiv.innerHTML = '距离2019年3月30日24时还有'+todou(day)+'天'+todou(hour)+'时'+todou(minute)+'分'+todou(second)+'秒';
+                    
+                }
+
+                function todou(num){
+
+                    if(num<10){
+                        return '0'+num;				
+                    }
+                    else
+                    {
+                        return num;
+                    }
+
+                }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div01"></div>
+</body>
+
+</html>
