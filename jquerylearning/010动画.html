@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            /**
+             * 参数：
+             * 1 属性设置{pra: 1, par: 2}
+             * 2 duration: 时间 ms 
+             * 3 easing：默认 'swing' 开始和结束慢速，中间快速 linear 匀速
+             * 4 回调函数，动画完成后干啥
+             */
+
+            $("#div1").animate(
+                {
+                    width: 200,
+                    height: 200,
+                }, 
+                1000,
+                "linear",
+                function () {
+                    // alert("done!")
+                    $(this).animate(
+                        {marginLeft: 500},
+                        1000,
+                        function () {
+                            $(this).animate(
+                                {marginTop: 500},
+                                1000
+                            )
+                        }
+                    )
+                }
+            );
+        });
+    </script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="box"></div>
+</body>
+</html>

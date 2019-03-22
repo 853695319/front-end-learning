@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素的绝对位置</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var $pos = $(".pos");
+            var pos = $pos.offset();
+            console.log(pos);
+            console.log("top: "+pos.top+" left: "+pos.left);
+
+            var wpos = $pos.outerWidth();
+            var hpos = $pos.outerHeight();
+            console.log("w: "+wpos+" h: "+hpos);
+
+            $(".pop").offset({
+                top: pos.top,
+                left: pos.left+wpos
+            });
+            /* $(".pop").css({
+                left: pos.left+wpos,
+                top: pos.top,
+            }) */
+            console.log($(".pop"))
+
+            $pos.mouseover(function () {
+                $(".pop").show();
+            });
+            $pos.mouseout(function () {
+                $(".pop").hide();
+            });
+
+        });
+    </script>
+    <style>
+        .con {
+            width: 600px;
+            height: 600px;
+            margin: 50 auto 0;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gold;
+            margin-bottom: 10px;
+        }
+        .pos {
+            margin-left: 500px;
+        }
+        .pop {
+            display: none;
+            position: fixed;
+            /* 相对浏览器窗口定位 */
+            left: 0;
+            top: 0;
+
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box pos"></div>
+        <div class="box"></div>
+    </div>
+    <!-- 放在最下面不会影响之前的结构 -->
+    <!-- 然后用js确定位置，再加入功能 -->
+    <div class="pop">提示信息！</div>
+</body>
+</html>

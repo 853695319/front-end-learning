@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+
+            // mouseover和mouseout进入子元素时也触发
+            // $("#div1").mouseover(function () {
+            //     // $(this).css({background: "green"})
+            //     $(this).animate({marginTop: 100});
+            // });
+            // $("#div1").mouseout(function () {
+            //     // $(this).css({background: "gold"})
+            //     $(this).animate({marginTop: 50});
+            // });
+            // bug01: 鼠标快速多次穿过元素时，它会记录你穿过的次数，然后完成这个次数
+            // 如果不想要这个效果，这么写 $(this).stop().animate() 清空队列，可以立即结束动画，在执行现在的
+            // bug02: 鼠标移动到子元素上和父元素来回移动时出现，明明子元素也在父元素里面，却反复触发事件，事件冒泡
+
+            // 进入子元素不会算一次事件，不会反复触发事件
+            // $("#div1").mouseenter(function () {
+            //     // $(this).css({background: "green"})
+                // $(this).stop().animate({marginTop: 100});
+            // });
+            // $("#div1").mouseleave(function () {
+            //     // $(this).css({background: "gold"})
+                // $(this).stop().animate({marginTop: 50});
+            // });
+
+            // 简化为
+            $("#div1").hover(function () {
+                $(this).stop().animate({marginTop: 100});
+            }, function () {
+                $(this).stop().animate({marginTop: 50});
+            });
+
+        });
+    </script>
+    <style>
+        body {
+            border: 1px solid white;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background: gold;
+            margin:50px auto 0;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="box">
+        <div class="son"></div>
+    </div>
+</body>
+</html>

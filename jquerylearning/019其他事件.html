@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>其他事件</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 原生写法
+        window.onload = function () {
+            console.log("window.onload");
+        };
+
+        // jQuery
+        $(window).load(function () {
+            console.log("jQuery.onload");
+        });
+        $(function () {
+            console.log("ready");
+        });
+
+        // 窗口尺寸改变的时候,高频事件
+        $(window).resize(function () {
+            console.log("resize");
+        });
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

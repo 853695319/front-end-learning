@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>节点操作</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+
+            // 创建节点
+            var $span = $('<span>span元素</span>');
+            var $p = $('<p>p段落元素</p>');
+            var $h1 = $('<h1>Title</h1>');
+
+            // 在现场元素内部，从后面插入元素
+            // $("#div1").append($span);
+            // $("#div1").append($p);
+            $span.appendTo($("#div1"));
+            $p.appendTo($("#div1"));
+
+            // $("#div1").before($h1);
+            $h1.insertBefore($("#div1"));
+
+            $span.remove();
+
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">这是一个div元素</div>
+</body>
+</html>

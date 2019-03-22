@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bind绑定事件</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+
+            $("#btn").bind("click mouseover", function () {
+                console.log("hello");
+
+                $(this).unbind("mouseover");  // 这样第一次鼠标移到元素上时，触发事件，下次就不会了
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn">
+</body>
+</html>

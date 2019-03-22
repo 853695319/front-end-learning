@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+
+            var $btn = $("#btn");
+            var $div = $(".box");
+
+            $btn.click(function () {
+                // 淡入淡出
+                // $div.fadeToggle();
+
+                // 显示和隐藏
+                // $div.toggle();
+
+                // 依次展开或卷起某个元素
+                $div.slideToggle();
+            });
+
+        });
+    </script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="效果" id="btn">
+    <div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // $(".list li").html('111');
+            $(".list li").css({
+                background: "gold",
+                marginBottom: "10px",
+            });
+
+            $(".list li").each(
+                function (index) {
+                    console.log(index);
+                    $(this).html(index);
+                }
+            );
+
+        });
+    </script>
+</head>
+
+<body>
+    <ul class="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input框事件</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+
+            // 一开始就获取光标
+            $("#txt01").focus();
+
+            // 获取焦点的时候，有光标的时候
+            $("#txt01").focus(function () {
+                console.log("focus");
+            });
+
+            // 失去焦点，光标离开的时候
+            $("#txt01").blur(function () {
+                console.log("blur");
+            });
+
+            // 输入框内的内容发生变化，失去焦点后触发
+            // 可以用在用户输入完用户名后，去匹配该用户名是否已存在
+            $("#txt01").change(function () {
+                console.log("change");
+            });
+
+            // 按键松开后就触发，触发频率高
+            $("#txt01").keyup(function () {
+                console.log("keyup");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <input type="text" id="txt01">
+</body>
+</html>
