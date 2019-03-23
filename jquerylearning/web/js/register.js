@@ -52,6 +52,24 @@ $(function () {
         }       
     });
 
+    $(".reg_form").submit(function () { 
+        // 进来就先判断一次
+        checkUserName();
+        checkPwd();
+        checkCpwd();
+        checkEmail();
+        
+        if (!(errorName == false &&
+            errorPwd == false &&
+            errorCpwd == false &&
+            errorEmail == false &&
+            errorAllow == false
+        )) {
+            return false;
+        }
+    });
+
+
     function checkUserName() {
         var val = $("#user_name").val();
             re = /^\w{5,15}$/ig;
@@ -104,6 +122,18 @@ $(function () {
         } else {
             errorCpwd = true;
             $("#cpwd").next().html("两次输入的密码不一致").show();
+        }
+    };
+
+    function checkEmail() {
+        var val = $("#email").val();
+            re = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+
+        if (re.test(val) == true) {
+            errorEmail = false;
+        } else {
+            errorEmail = true;
+            $("#email").next().html("请输入正确的邮箱地址").show();
         }
     };
 
