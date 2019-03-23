@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.js"></script> -->
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="js/slide.js"></script>
 	<script type="text/javascript">
@@ -15,7 +16,7 @@
 			dataType: 'json'
 		})
 		.done(function(data) {
-			if(data.code==1){
+			if(data.code==1){  // 判断是否成功读取到数据
 
 				$('.login_info em').html(data.data.name);
 				$('.login_info').show();

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // ajax 要在服务器环境运行！！ 本地运行会出现同源错误
+        $.ajax({
+            url:"data.json",  // http://127.0.0.1:5500/jquerylearning/data.json 实际开发
+            type: "get",
+            dataType: "json"
+        })
+        .done(function (data) {
+            console.log("success");
+            console.log(data);
+        })
+        .fail(function () {
+            console.log("error");
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

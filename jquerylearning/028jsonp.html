@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsonp跨域请求</title>
+    <script src="js/jquery-1.12.4.js"></script>
+
+    <script>
+        // 1 利用<script>标签实现跨域
+        function aa(data) {
+            alert("利用<script>标签："+data.name);
+        }
+    </script>
+    <script src="jsonptest.js">
+        // 上面定义的函数在 jsonptest.js 中调用
+    </script>
+
+    <script>
+        // 2 ajax集成了jsonp，可以直接用来跨域，原理同 1 。
+        $.ajax({
+            url: "jsonptest.js",
+            type: "get",
+            dataType: "jsonp",
+            jsonpCallback: "aa"  // jsonp的接口格式，数据用括号包起来，给函数名，然后在这里回调
+        })
+        .done(function (data) {
+            console.log("success");
+            alert(data.name);
+        })
+        .fail(function () {
+            console.log("error");
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
