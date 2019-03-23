@@ -1,179 +1,110 @@
-$(function(){
+$(function () {
 
-	var error_name = false;
-	var error_password = false;
-	var error_check_password = false;
-	var error_email = false;
-	var error_check = false;
+    var errorName = false;
+        errorPwd = false;
+        errorCpwd = false;
+        errorEmail = false;
+        errorAllow = false;
+    
+    $("#user_name").blur(function () {
+        // 失去光标时，检查输入框内容
+        checkUserName();
+    });
+    $("#user_name").focus(function () {
+        // 隐藏提示信息
+        $(this).next().hide();
+    });
 
+    $("#pwd").blur(function () {
+        // 失去光标时，检查输入框内容
+        checkPwd();
+    });
+    $("#pwd").focus(function () {
+        // 隐藏提示信息
+        $(this).next().hide();
+    });
 
-	$('#user_name').blur(function() {
-		check_user_name();
-	});
+    $("#cpwd").blur(function () {
+        // 失去光标时，检查输入框内容
+        checkCpwd();
+    });
+    $("#cpwd").focus(function () {
+        // 隐藏提示信息
+        $(this).next().hide();
+    });
 
-	$('#user_name').focus(function() {
-		$(this).next().hide();
-	});
+    $("#email").blur(function () {
+        // 失去光标时，检查输入框内容
+        checkEmail();
+    });
+    $("#email").focus(function () {
+        // 隐藏提示信息
+        $(this).next().hide();
+    });
 
+    $("#allow").click(function () { 
+        if ($(this).prop("checked") == true) {
+            errorAllow = false;
+            $(".error_tip2").hide();
+        } else {
+            errorAllow = true;
+            $(".error_tip2").html("请勾选同意").show();
+        }       
+    });
 
-	$('#pwd').blur(function() {
-		check_pwd();
-	});
+    function checkUserName() {
+        var val = $("#user_name").val();
+            re = /^\w{5,15}$/ig;
 
-	$('#pwd').focus(function() {
-		$(this).next().hide();
-	});
+        if (val == "") {
+            $("#user_name").next().html("用户名不能为空！");
+            $("#user_name").next().show();
+            errorName = true;
+            return;
+        }
 
-	$('#cpwd').blur(function() {
-		check_cpwd();
-	});
+        if (re.test(val)) {
+            errorName = false;
+        } else {
+            errorName = true;
+            $("#user_name").next().html("用户名应是包含字母、数字、下划线的5到15位数构成");
+            $("#user_name").next().show();
+        }
 
-	$('#cpwd').focus(function() {
-		$(this).next().hide();
-	});
-
-	$('#email').blur(function() {
-		check_email();
-	});
-
-	$('#email').focus(function() {
-		$(this).next().hide();
-	});
-
-	$('#allow').click(function() {
-		if($(this).is(':checked'))
-		{
-			error_check = false;
-			$(this).siblings('span').hide();
-		}
-		else
-		{
-			error_check = true;
-			$(this).siblings('span').html('请勾选同意');
-			$(this).siblings('span').show();
-		}
-	});
-
-
-	function check_user_name(){
-		//数字字母或下划线
-		var reg = /^[a-zA-Z0-9_]{5,15}$/;
-		var val = $('#user_name').val();
-
-		if(val==''){
-			$('#user_name').next().html('用户名不能为空！')
-			$('#user_name').next().show();
-			error_name = true;
-			return;
-		}
-
-		if(reg.test(val))
-		{
-			$('#user_name').next().hide();
-			error_name = false;
-		}
-		else
-		{
-			$('#user_name').next().html('用户名是5到15个英文或数字，还可包含“_”')
-			$('#user_name').next().show();
-			error_name = true;
-		}
-
-	}
+    }
 
 
-	function check_pwd(){
-		var reg = /^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/;
-		var val = $('#pwd').val();
+    function checkPwd() {
+        var val = $("#pwd").val();
+            re = /^[a-zA-Z0-9@_/+-\.\$]{6,16}$/ig;
 
-		if(val==''){
-			$('#pwd').next().html('密码不能为空！')
-			$('#pwd').next().show();
-			error_password = true;
-			return;
-		}
+        if (val == "") {
+            $("#pwd").next().html("密码不能为空！");
+            $("#pwd").next().show();
+            errorPwd = true;
+            return;
+        }
 
-		if(reg.test(val))
-		{
-			$('#pwd').next().hide();
-			error_password = false;
-		}
-		else
-		{
-			$('#pwd').next().html('密码是6到15位字母、数字，还可包含@!#$%^&*.~字符')
-			$('#pwd').next().show();
-			error_password = true;
-		}		
-	}
+        if (re.test(val)) {
+            errorPwd = false;
+        } else {
+            errorPwd = true;
+            $("#pwd").next().html("用户名应是包含字母、数字,特殊字符的6到16位数构成");
+            $("#pwd").next().show();
+        }
 
+    }
 
-	function check_cpwd(){
-		var pass = $('#pwd').val();
-		var cpass = $('#cpwd').val();
+    function checkCpwd() {
+        var val = $("#pwd").val();
+        var cval = $("#cpwd").val();
 
-		if(pass!=cpass)
-		{
-			$('#cpwd').next().html('两次输入的密码不一致')
-			$('#cpwd').next().show();
-			error_check_password = true;
-		}
-		else
-		{
-			$('#cpwd').next().hide();
-			error_check_password = false;
-		}		
-		
-	}
+        if (cval == val) {
+            errorCpwd = false;
+        } else {
+            errorCpwd = true;
+            $("#cpwd").next().html("两次输入的密码不一致").show();
+        }
+    };
 
-	function check_email(){
-		var re = /^[a-z0-9][\w\.\-]*@[a-z0-9\-]+(\.[a-z]{2,5}){1,2}$/;
-		var val = $('#email').val();
-
-		if(val==''){
-			$('#email').next().html('邮箱不能为空！')
-			$('#email').next().show();
-			error_email = true;
-			return;
-		}
-
-		if(re.test(val))
-		{
-			$('#email').next().hide();
-			error_email = false;
-		}
-		else
-		{
-			$('#email').next().html('你输入的邮箱格式不正确')
-			$('#email').next().show();
-			error_email = true;
-		}
-
-	}
-
-
-	$('.reg_form').submit(function() {
-
-		check_user_name();
-		check_pwd();
-		check_cpwd();
-		check_email();
-
-		if(error_name == false && error_password == false && error_check_password == false && error_email == false && error_check == false)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-
-	});
-
-
-
-
-
-
-
-
-})
+});

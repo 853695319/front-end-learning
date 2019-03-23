@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // 定义一个正则的规则
+        // JavaScript 匹配懒惰
+        var re01 = new RegExp("a","ig");
+        var re02 = /ad/ig;
+        var re03 = /^\d+$/;
+        var re04 = /^\w+$/;
+        // var re05 = /\d+/;  // "123",只匹配开头的
+        var re05 = /\d+/g;  // "123", "456" ，全局 flag: g 匹配全部
+        var re06 = /a/;
+
+        var str = "abc";
+        var str2 = "999aa";
+        var str4 = "a&bc";
+        var str5 = "123abc456kkk"
+        var str6 = str5.replace(re05, "*");
+
+        // console.log(re02.test(str));
+        // console.log(re03.test(str2));
+        // console.log(re04.test(str4));
+        // console.log(str5.match(re05));
+        // console.log(str5.search(re06));
+        console.log(str6);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
