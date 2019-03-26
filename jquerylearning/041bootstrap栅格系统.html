@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>栅格系统</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* 属性选择器，div里class属性名里有col-就匹配上 */
+        div[class*="col-"] {
+            height: 50px;
+            border: 1px solid #000;
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 3*4=12 -->
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+            <div class="col-lg-3">col-lg-3</div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- 3*4=12 -->
+            <div class="col-md-3">col-md-3</div>
+            <div class="col-md-6">col-md-6</div>
+            <div class="col-md-3">col-md-3</div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- 3*4=12 -->
+            <div class="col-sm-3">col-sm-3</div>
+            <div class="col-sm-6">col-sm-6</div>
+            <div class="col-sm-3">col-sm-3</div>
+        </div>
+        <br>
+        <div class="row">
+            <!-- 3*4=12 -->
+            <div class="col-xs-4">col-xs-4</div>
+            <div class="col-xs-4">col-xs-4</div>
+            <div class="col-xs-4">col-xs-4</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>栅格系统</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* 属性选择器，div里class属性名里有col-就匹配上 */
+        .pic {
+            height: 200px;
+            /* 盒子最大宽度 200px， 当父元素小于200px时，宽度等于父元素 */
+            max-width: 200px;
+            background: gold;
+            border: 1px solid #000;
+            margin: 15px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- 一开始使用 col-lg-3 缩小后使用 col-md-4 -->
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+            <div class="col-lg-3 col-md-4 col-sm-6"><div class="pic"></div></div>
+        </div>
+    </div>
+</body>
+</html>
