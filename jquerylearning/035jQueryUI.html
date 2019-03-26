@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQueryUI</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            // 可以拖动
+            $(".box").draggable({
+                // 约束元素活动范围  Type: Selector or Element or String or Array 
+                // String: Possible values: "parent", "document", "window".
+                containment: "parent",
+
+                // 约束在x轴上拖动
+                axis: "x",
+
+                // 拖动时，透明度变化
+                opactity: 0.6,
+
+                drag:function (event, ui) {
+                    // console.log(ui);
+                    console.log(ui.position.left);
+                },
+            });
+        });
+    </script>
+    <style>
+        .con {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto 0;
+        }
+
+        .box {
+            width: 40px;
+            height: 40px;
+            background: gold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div class="box"></div>
+    </div>
+</body>
+</html>

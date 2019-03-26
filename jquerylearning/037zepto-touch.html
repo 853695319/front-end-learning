@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>zepto</title>
+    <script src="js/zepto.min.js"></script>
+    <script>
+        $(function () {
+            // tap事件比click事件快！
+            $(".box").tap(function () { 
+                console.log("tap!");
+            });
+
+            $(".box").click(function () {  
+                console.log("click");
+            })
+
+            $(".box").longTap(function () {  
+                alert("longTap!");
+            })
+
+            $(".box").swipeRight(function () {  
+                console.log("swipe right");
+            })
+
+        });
+    </script>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

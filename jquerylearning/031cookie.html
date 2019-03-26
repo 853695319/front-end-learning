@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cookie</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script>
+        // cookie 的读写需要在服务器环境下
+        // 设置cookie
+        $.cookie("mycookie", "ok", {expires: 7, path: "/"});
+        // 读cookie
+        var val = $.cookie("mycookie");
+        console.log(val);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
