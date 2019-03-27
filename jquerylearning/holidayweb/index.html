@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>天天生鲜水果节</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: "Microsoft Yahei";
+        }
+
+        /* 导航条 */
+        .navbar {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        .navbar-default {
+            background-color: #ff722b;
+        }
+        .navbar-brand {
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .navbar-default .navbar-nav > li > a {
+            color: #ffffff;
+        }
+
+        /* banner */
+        .jumbotron {
+            height: 358px;
+            padding:0;
+            background: url(images/banner_bg.jpg);
+        }
+        /* .jumbotron .container {
+            height: 100%;
+        } */
+        .jumbotron .container .banner{
+            /* margin-top: 63px; */
+            margin-top: 14%;
+            /* margin: 63px 0 0 97px; */
+            /* width: 452px; */
+
+        }
+        /* .jumbotron .container .banner-title{
+            height: 66px;
+            background: url(images/banner_title.png) no-repeat;
+        } */
+        .jumbotron .container .banner-bg{
+            height: 358px;
+            /* background: url(images/fruit.png) no-repeat 683px 24px; */
+            background: url(images/fruit.png) no-repeat 98px 24px;
+        }
+        .jumbotron .container .banner-fruit{
+            /* margin-top: 4%; */
+            margin-top: 9%;
+        }
+        .jumbotron .container h1{
+            margin: 0;
+            padding: 0;
+
+            font-size: 18px;
+            line-height: 58px;
+            color: #ffff00;
+            /* font-weight: bold; */
+        }
+        .jumbotron .container p{
+            font-size: 14px;
+            line-height: 28px;
+            color: #ffffff;
+        }
+
+        /* 活动照片 */
+        .activities-list .activities{
+            width: 259px;
+            height: 240px;
+            margin: 0 auto 0;
+
+            border: 1px solid #dddddd;
+        }
+        .activities-list .activities .activities-pic-1,
+        .activities-list .activities .activities-pic-2,
+        .activities-list .activities .activities-pic-3,
+        .activities-list .activities .activities-pic-4{
+            width: 252px;
+            height: 190px;
+            background: url(images/active01.jpg) no-repeat;
+            margin: 4px auto 0;
+        }
+        .activities-list .activities .activities-pic-2{
+            background-image: url(images/active02.jpg)
+        }
+        .activities-list .activities .activities-pic-3{
+            background-image: url(images/active03.jpg)
+
+        }
+        .activities-list .activities .activities-pic-4{
+            background-image: url(images/active04.jpg)
+
+        }
+        .activities-list .activities p{
+            margin-top: 13px;
+
+            font-size: 15px;
+            line-height: 21px;
+            color: #333333;
+            text-align: center;
+        }
+
+        /* 推荐商品 */
+        .goods-list {
+            margin-top: 20px;
+        }
+        .goods-list .header-bar{
+            margin-left: 15px;
+            margin-right: 15px;
+
+            height: 40px;
+            background-color: #ff722b;
+            /* border-radius: 3px; */
+            color: #ffffff;
+        }
+        .goods-list .header-bar .bar-title{
+            margin: 0;
+
+            font-size: 16px;
+            line-height: 40px;
+            text-indent: 8px;
+        }
+        .goods-list .header-bar .bar-more {
+            font-size: 12px;
+            line-height: 40px;
+            color: #ffffff;
+
+            margin-right: 12px;
+        }
+        .goods-list .container .row {
+            margin-top: 21px;
+
+            /* width: 1139px; */
+        }
+        .goods-list .container .row div[class*="col-"]{
+            margin-left: -1px;
+        }
+        .goods-list .goods-con {
+            padding-top: 11px;
+            margin-left: -15px;
+            margin-right: -15px;
+
+            height: 224px;
+            border: 1px solid #dddddd;
+        }
+        .goods-list .goods-caption h4 {
+            font-size: 14px;
+            color: #666666;
+            text-align: center;
+
+            margin-top: 17px;
+        }
+        .goods-list .goods-caption{
+            font-size: 16px;
+            color: #ff0000;
+            text-align: center;
+        }
+        .goods-list .goods-caption .goods-price {
+            font-size: 22px;
+
+            margin: 17px 0;
+        }
+
+        /* 公司信息 */
+        .footer-con {
+            margin-top: 22px;
+
+            /* height: 129px; */
+            background-color: #ff722b;
+            color: #ffffff;
+            font-size: 12px;
+        }
+        .footer-con .footer-nav {
+            margin-top: 33px;
+            margin-bottom: 5px;
+        }
+        .footer-con .footer-nav a{
+            font-size: 12px;
+            color: #ffffff;
+        }
+        .footer-con p{
+            line-height: 27.5px;
+            margin-bottom: 12px;
+
+        }
+
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- nvabar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapsed" data-target="#header-menu-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <img src="images/logo.png" alt="天天生鲜logo" class="img-responsive">
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="header-menu-1">
+
+                <!-- 导航列表 -->
+                <ul class="nav navbar-nav">
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#recommend-good">推荐商品</a></li>
+                    <li><a href="#">手机生鲜</a></li>
+                    <li><a href="#">抽奖</a></li>
+                </ul>
+
+                <!-- 搜索栏 -->
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="">
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+            </div> <!-- navbar-collapse -->
+
+        </div> <!-- container -->
+    </div> <!-- navbar -->
+
+    <!-- banner -->
+    <div class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <div class="banner">
+                        <!-- <div class="banner-title"></div> -->
+                        <img src="images/banner_title.png" alt="天天生鲜水果节" class="img-responsive">
+                        <h1>水果节介绍</h1>
+                        <p>
+                            天天生鲜将在北京、天津、上海、南京、苏州、杭州、成都、武汉8座核心城市同期推出北京水果专场，借助天天生鲜产地端到用户端的渠道，果品流转效率得以大大提高。依托天天生鲜的渠道优势，首届果节做到了高质低价。
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5 hidden-xs">
+                    <!-- <div class="banner-bg"></div> -->
+                    <img src="images/fruit.png" alt="水果篮" class="img-responsive banner-fruit">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 活动照片 -->
+    <div class="activities-list">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">活动照片</h2>
+                    <p class="text-center">
+                        天天生鲜产地直采的果品甚至可以追溯到种植者和生产的地块儿。确定具体采摘地块儿后，在适合的时间将水果采摘下来后，直接在地头包装成箱，根据订单分装运到各个分仓，然后由配送员送到用户手中。以下是本次活动相关的图片
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="activities">
+                        <div class="activities-pic-1"></div>
+                        <p>现场采摘活动</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="activities">
+                        <div class="activities-pic-2"></div>
+                        <p>产地装箱直发</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="activities">
+                        <div class="activities-pic-3"></div>
+                        <p>水果节活动</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="activities">
+                        <div class="activities-pic-4"></div>
+                        <p>水果艺术拼盘</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- 活动照片 -->
+
+    <!-- 推荐商品 -->
+    <div class="goods-list">
+        <div class="container">
+
+            <!-- 标题栏 -->
+            <div class="row">
+                <div class="header-bar center-block">
+                    <h3 id="recommend-good" class="bar-title pull-left">推荐商品</h3>
+                    <span class="pull-right">
+                        <a href="#" class="bar-more">更多&gt;&gt;</a>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row center-block">
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- row -->
+
+            <div class="row center-block">
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-6">
+                    <div class="goods-con center-block">
+                        <img src="images/good_pic.jpg" alt="进口水果" class="center-block">
+                        <div class="goods-caption">
+                            <h4>进口草莓</h4>
+                            <p>
+                                ￥<span class="goods-price">25.00</span>/500g
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- row -->
+
+        </div> <!-- container -->
+
+    </div> <!-- goods-list -->
+
+    <!-- 公司信息 -->
+    <div class="text-center footer-con clearfix">
+        <ul class="list-inline footer-nav">
+                <li><a href="#">关于我们</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">联系我们</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">招聘人才</a></li>
+                <li><span>|</span></li>
+                <li><a href="#">友情链接</a></li>
+        </ul>
+        <p class="text-center">
+            CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved<br>
+            电话：010-****888    京ICP备*******8号
+        </p>
+    </div>
+
+    
+    
+
+
+</body>
+</html>
