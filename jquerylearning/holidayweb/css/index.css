@@ -5,7 +5,7 @@ body{
 }
 
 .navbar{
-	margin-bottom:0px;
+	margin-bottom:0;
 }
 
 .navbar-brand{
@@ -40,7 +40,7 @@ body{
 .jumbotron{
 	background:url(../images/banner_bg.jpg) center center no-repeat;
 	padding:24px 0;
-	margin-bottom:0px;
+	margin-bottom:0;
 }
 
 .banner_title{
@@ -87,7 +87,7 @@ body{
 
 .thumbnail{
 	max-width:260px;
-	margin:0px auto 20px;
+	margin:0 auto 20px;
 }
 
 .common_title{
@@ -97,8 +97,8 @@ body{
 
 .common_title h3{
 	height:40px;
-	padding:0px;
-	margin:0px;
+	padding:0;
+	margin:0;
 	font-size:16px;
 	color:#fff;
 	line-height:40px;
@@ -128,26 +128,26 @@ body{
 	font-size: 22px;
 }
 
-.goods_list_show{
-	border:1px solid #dddddd;
-	margin-top:20px;
-	border-right-color:#fff;	
-}
-
 .goods_list_show img{
 	margin:0 auto;
 }
 
 .goods_list{
-	margin:0px;
+	margin:0;
 }
 
-
+/* 解决边线重叠的方法 */
+/* 右边边线白色，然后用响应式把最后一条边变色 */
+.goods_list_show{
+	border:1px solid #dddddd;
+	margin-top:20px;
+	border-right-color:#fff;	
+}
 .goods_list .goods_list_show:nth-child(2n){
 	border-right-color:#ddd;
 }
 
-
+/* 当宽度大于或等于768px时 */
 @media (min-width:768px){
 
 	.goods_list .goods_list_show:nth-child(2n){
@@ -159,6 +159,7 @@ body{
 	}
 }
 
+/* 当宽度大于或等于992px时 */
 @media (min-width:992px){
 
 
@@ -171,6 +172,7 @@ body{
 	}
 }
 
+/* 当宽度大于或等于1200px时 */
 @media (min-width:1200px){
 
 	

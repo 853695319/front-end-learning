@@ -173,7 +173,7 @@ body{
 }
 
 .goods_list li:last-child{
-	border-right:0px;
+	border-right:0;
 }
 
 
